@@ -1,0 +1,280 @@
+What will be the output of following code?
+
+from abc import ABC,abstractmethod
+
+class A(ABC):
+
+    @abstractmethod
+    def fun1(self):
+        pass
+
+    @abstractmethod
+    def fun2(self):
+        pass
+
+o = A()
+o.fun1()
+
+output:Error
+
+--------------------------------------------------
+
+What will be the output of following code?
+
+from abc import ABC,abstractmethod
+
+class A(ABC):
+
+    @abstractmethod
+    def fun1(self):
+        pass
+
+    @abstractmethod
+    def fun2(self):
+        pass
+
+class B(A):
+
+    def fun1(self):
+        print(“function 1 called”)
+o = B()
+o.fun1()
+
+output:Error
+
+------------------------------------------------------
+
+What will be the output of following code?
+
+from abc import ABC,abstractmethod
+
+class A(ABC):
+
+    @abstractmethod
+    def fun1(self):
+        pass
+
+    @abstractmethod
+    def fun2(self):
+        pass
+
+class B(A):
+
+    def fun1(self):
+        print(“function 1 called”)
+
+    def fun2(self):
+        print(“function 2 called”)
+o = B()
+o.fun1()
+
+output:function 1 called
+
+-----------------------------------------------
+
+What will be the output of following code?
+
+from abc import ABC,abstractmethod
+
+class A(ABC):
+
+    @abstractmethod
+    def fun1(self):
+        print(“function of class A called”)
+
+    @abstractmethod
+    def fun2(self):
+        pass
+
+class B(A):
+    def fun1(self):
+        print(“function 1 called”)
+    def fun2(self):
+        print(“function 2 called”)
+o = B()
+o.fun1()
+
+output:function 1 called
+
+-----------------------------------------------------
+
+What will be the output of following code?
+
+from abc import ABC,abstractmethod
+
+class A(ABC):
+
+    @abstractmethod
+    def fun1(self):
+        print(“function of class A called”)
+
+    @abstractmethod
+    def fun2(self):
+        pass
+
+class B(A):
+    def fun1(self):
+        super().fun1()
+    def fun2(self):
+        print(“function 2 called”)
+o = B()
+o.fun1()
+
+output:function of class A called
+
+------------------------------------------------------
+
+What will be the output of following code?
+
+try:
+    a = 10
+    b = 0
+    c = a/b
+    print(c)
+except ValueError:
+    print(“Exception occured”)
+   
+output:ZeroDivisionError
+
+------------------------------------------------------
+
+What will be the output of following code?
+
+try:
+    a = 10
+    b = 0
+    c = a/b
+    print(c)
+except ZeroDivisionError:
+    print(“Exception occured”)
+    
+output:Exception occured
+
+--------------------------------------------------------
+
+What will be the output of following code?
+
+try:
+    a = 10
+    b = 0
+    c = a/b
+    print(c)
+except :
+    print(“Exception occured”)
+    
+output:Exception occured
+
+-------------------------------------------------------
+
+What will be the output of following code?
+try:
+    a = 10
+    b = 0
+    print(d)
+    c = a/b
+except NameError:
+    print('Name Error occured')
+except ZeroDivisionError:
+    print('Zero Division Error occured')
+    
+output:Name Error occured
+
+---------------------------------------------------------
+
+What will be the output of following code?
+
+class ZeroDenominatorError(Exception):
+    pass
+try:
+    a = 10
+    b = 0
+    if(b==0):
+        raise ZeroDenominatorError() 
+    c = a/b
+except ZeroDivisionError:
+    print('Zero Division Error occured')
+    
+output:Error-ZeroDenominatorError
+
+-----------------------------------------------------------
+
+What will be the output of following code?
+
+class ZeroDenominatorError(ZeroDivisionError):
+    pass
+try:
+    a = 10
+    b = 0
+    if(b==0):
+        raise ZeroDenominatorError()
+    c = a/b
+except ZeroDivisionError:
+    print('Zero Division Error occured')
+except ZeroDenominatorError:
+    print('Zero Denominator Error occured')
+    
+output:Zero Division Error occured
+
+------------------------------------------------------------
+
+What wil be the output of following code?
+class ZeroDenominatorError(ZeroDivisionError):
+    pass
+try:
+    a = 10
+    b = 0
+    if(b==0):
+        raise ZeroDenominatorError()
+    c = a/b
+except ZeroDivisionError:
+    print('Zero Division Error occured',end= ‘ ‘)
+except ZeroDenominatorError:
+    print('Zero Denominator Error occured',end = ‘ ‘)
+else:
+    print(‘else works’)
+    
+ output:Zero Division Error occured
+ 
+ -------------------------------------------------------------
+ 
+ What wil be the output of following code?
+ 
+class ZeroDenominatorError(ZeroDivisionError):
+    pass
+try:
+    a = 10
+    b = 5
+    if(b==0):
+        raise ZeroDenominatorError()
+    c = a/b
+except ZeroDivisionError:
+    print('Zero Division Error occured',end= ‘ ‘)
+except ZeroDenominatorError:
+    print('Zero Denominator Error occured',end = ‘ ‘)
+else:
+    print(‘else works’)
+    
+output:else works
+
+--------------------------------------------------------------
+
+What wil be the output of following code?
+
+class ZeroDenominatorError(ZeroDivisionError):
+    pass
+try:
+    a = 10
+    b = 5
+    if(b==0):
+        raise ZeroDenominatorError()
+    c = a/b
+except ZeroDivisionError:
+    print('Zero Division Error occured',end= ‘ ‘)
+except ZeroDenominatorError:
+    print('Zero Denominator Error occured',end = ‘ ‘)
+else:
+    print(‘else works’,end=' ')
+finally:
+    print(‘finally works’)
+    
+output:else works finally works
