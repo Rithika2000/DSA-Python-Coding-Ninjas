@@ -1,0 +1,136 @@
+What will be the output of following code?
+
+class Vehicle:
+     def __init__(self,color):
+         self.color = color
+class Car(Vehicle):
+     def __init__(self,color,numGears):
+         self.numGears = numGears
+c= Car(“black”,5)
+print(c.color)
+
+output:Error
+
+----------------------------------------------------------
+
+What will be the output of following code?
+
+class Vehicle:
+    def __init__(self,color):
+        self.color = color
+class Car(Vehicle):
+    def __init__(self,color,numGears):
+        super().__init__(color)
+        self.numGears = numGears
+c= Car(“black”,5)
+print(c.color)
+
+output:black
+
+-----------------------------------------------------------
+
+What will be the output of following code?
+
+class Vehicle:
+     def __init__(self,color):
+         self.__color = color
+class Car(Vehicle):
+    def __init__(self,color,numGears):
+        super().__init__(color)
+        self.numGears = numGears
+    def printCar(self):
+        print(c.__color,end=” )
+        print(c.numGears)
+c = Car(“black”,5)
+c.printCar()
+
+output:Error
+
+-----------------------------------------------------------
+
+What will be the output of following code?
+
+class Vehicle:
+    def __init__(self,color):
+        self.color = color
+    def print(self):
+        print(self.color,end="")
+class Car(Vehicle):
+    def __init__(self,color,numGears):
+        super().__init__(color)
+        self.numGears = numGears
+    def print(self):
+       print(self.color,end="")
+       print(self.numGears)
+c = Car(“black”,5)
+c.print()
+
+output:black5
+
+----------------------------------------------------------
+
+What will be the output of following code?
+
+class Vehicle:
+    def __init__(self,color):
+        self.color = color
+    def print(self):
+        print(c.color,end=””)
+class Car(Vehicle):
+    def __init__(self,color,numGears):
+        super().__init__(color)
+        self.numGears = numGears
+    def print(self):
+        self.print()
+        print(c.numGears)
+c = Car(“black”,5)
+c.print()
+
+output:Recursion Error
+
+------------------------------------------------------------
+
+What will be the output of following code?
+
+class Circle(object):
+    def __str__(self):
+        return “This is a Circle Class”
+c = Circle()
+print(c)
+
+output:This is a Circle class
+
+------------------------------------------------------------
+
+What will be the output of following code?
+
+class A:
+
+    def __init__(self):
+        print(“init of A called”)
+class B:
+    def __init__(self):
+        print(“init of B called”)
+
+class C(B,A):
+    def __init__(self):
+        super().__init__()
+
+c = C()
+
+output:init of B called
+
+------------------------------------------------------------
+
+class X: pass
+class Y: pass
+class Z:pass
+class A(X,Y):pass
+class B(Y,Z):pass
+class M(B,A,Z):pass
+
+What will be the Method Resolution Order of M?
+
+output:M>B>A>X>Y>Z
+
+
